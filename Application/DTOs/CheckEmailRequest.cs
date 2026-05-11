@@ -2,5 +2,5 @@
 
 public record CheckEmailRequest
 (
-    String Email
+    string Email
 );

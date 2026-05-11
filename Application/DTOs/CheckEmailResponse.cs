@@ -2,6 +2,5 @@
 
 public record CheckEmailResponse
 (
-    bool Exists,
-    string Email
+    bool Exists
 );
