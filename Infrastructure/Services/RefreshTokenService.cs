@@ -55,7 +55,7 @@ public class RefreshTokenService(DataContext context, RefreshTokenHasher hasher,
         {
             Id = Guid.NewGuid(),
             UserId = currentToken.UserId,
-            TokenHash = hasher.Hash(plainToken),
+            TokenHash = hasher.Hash(newPlainToken),
             CreatedAtUtc = now,
             ExpiresAtUtc = now.AddDays(_options.RefreshTokenDays),
             CreatedByIp = ipAddress,

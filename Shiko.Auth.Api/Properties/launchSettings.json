@@ -4,7 +4,8 @@
     "https development": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": false,
+      "launchBrowser": true,
+      "launchUrl": "scalar", // To open Scalar in the browser upon startup in the Development environment.
       "applicationUrl": "https://0.0.0.0:4443",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

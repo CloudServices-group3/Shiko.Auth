@@ -3,6 +3,8 @@ using Infrastructure.Data;
 using Infrastructure.Data.Identity;
 using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
+using Shiko.Auth.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +48,12 @@ using ( var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference(options =>
+    {
+        options.Title= "Authentication API";
+        options.Theme = ScalarTheme.Default;
+        options.DefaultHttpClient = new(ScalarTarget.CSharp, ScalarClient.HttpClient);
+    });
 }
 
 app.UseHttpsRedirection();
@@ -54,5 +62,7 @@ app.UseAuthentication(); // Authentication
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapAuthenticationEndpoints();
 
 app.Run();
